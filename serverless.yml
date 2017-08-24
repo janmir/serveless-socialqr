@@ -1,0 +1,20 @@
+service: socialQR
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: ap-northeast-1
+  role: arn:aws:iam::491150663186:role/service-role/basic.execution
+  memorySize: 128
+  timeout: 5
+
+functions:
+  social_qr:
+    handler: handler.social_qr
+    name: social_qr
+    description: Social networking site qr platform.
+    environment:
+      DEBUG: true
+    tags:
+      type: social
